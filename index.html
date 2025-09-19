@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EducaVial Quibdó - Conciencia Vial para un Futuro Seguro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    xintegrity="sha384-QWTKZyjpPEjISv5WaRU9O+ctnJcmoqfYMdre2uHbLekWwwyDZj0kMchX+2tV2wF" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    xintegrity="sha512-Fo3rlrZj/k7oS7FAHwevFzI+xY9aXz6G1f3g4Q6Qz3z6H6Z3Jm6A2b4p1Fw2z5I5h0D5x2C5s6e5d6A5f5g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Variables CSS para una gestión de colores fácil */
+    :root {
+      --primary-color: #0056b3;
+      /* Azul oscuro para elementos principales */
+      --secondary-color: #007bff;
+      /* Azul vibrante para resaltados */
+      --accent-color: #28a745;
+      /* Verde para acciones positivas */
+      --text-color: #343a40;
+      /* Gris oscuro para texto */
+      --light-bg: #f8f9fa;
+      /* Fondo claro */
+      --dark-bg: #212529;
+      /* Fondo oscuro */
+      --gradient-start: #007bff;
+      --gradient-end: #0056b3;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      /* Usando la fuente Inter */
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-bg);
+      overflow-x: hidden;
+      /* Evita el scroll horizontal */
+    }
+
+    /* Estilos de la barra de navegación */
+    .navbar {
+      transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .navbar.scrolled {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--primary-color) !important;
+      font-size: 1.5rem;
+    }
+
+    .navbar-nav .nav-link {
+      color: var(--text-color) !important;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: var(--secondary-color) !important;
+      background-color: rgba(0, 123, 255, 0.05);
+    }
+
+    /* Sección Hero */
+    /*.hero-section {
+      /background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1600x900/007bff/ffffff?text=Quibdo+Traffic+Safety') no-repeat center center/cover;
+      background-image: url('assets/img/Fondo_2.jpg');
+      color: white;
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      /* Para contener las animaciones internas *
+    }*/
+
+    .hero-section {
+      flex: 1;
+      background-image: url('assets/img/Fondo_2.jpg');
+      /* Ensure this path is correct */
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: white;
+      text-align: center;
+      /* Crucial for positioning the photo-credit */
+      display: flex;
+      /* Keep flex for potential future content */
+      align-items: flex-end;
+      /* Align items to the bottom */
+      justify-content: flex-start;
+      /* Align items to the start */
+      padding: 200px;
+      /* Adjust padding as needed *
+      color: var(--white);*/
+      font-size: 0.9em;
+    }
+
+    .hero-section h1 {
+      font-size: 4.5rem;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+      animation: slideInUp 1s ease-out forwards;
+      animation-delay: 0.3s;
+      opacity: 0;
+    }
+
+    .hero-section p {
+      font-size: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto 50px auto;
+      animation: slideInUp 1s ease-out forwards;
+      animation-delay: 0.6s;
+      opacity: 0;
+    }
+
+    .btn-primary-custom {
+      background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+      animation: zoomIn 1s ease-out forwards;
+      animation-delay: 0.9s;
+      opacity: 0;
+    }
+
+    .btn-primary-custom:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(0, 123, 255, 0.4);
+      background: linear-gradient(to right, var(--gradient-end), var(--gradient-start));
+    }
+
+    /* Secciones de Contenido General */
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      color: var(--primary-color);
+      font-size: 3rem;
+      margin-bottom: 50px;
+      position: relative;
+      display: inline-block;
+      font-weight: 700;
+    }
+
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 5px;
+      background-color: var(--secondary-color);
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    /* Tarjetas de Problema/Solución */
+    .problem-card,
+    .solution-card {
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      margin-bottom: 30px;
+      text-align: left;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .problem-card:hover,
+    .solution-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .problem-card h3,
+    .solution-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+
+    .problem-card p,
+    .solution-card p {
+      color: var(--text-color);
+      font-size: 1.15rem;
+      line-height: 1.8;
+    }
+
+    .problem-card .icon,
+    .solution-card .icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .problem-card .icon {
+      color: #dc3545;
+    }
+
+    /* Rojo para problema */
+    .solution-card .icon {
+      color: var(--accent-color);
+    }
+
+    /* Verde para solución */
+
+    /* Tarjetas de Módulos */
+    .module-card {
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      margin-bottom: 30px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .module-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .module-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    .module-card-body {
+      padding: 30px;
+    }
+
+    .module-card-body h4 {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .module-card-body p {
+      color: var(--text-color);
+      font-size: 1.05rem;
+      margin-bottom: 25px;
+    }
+
+    .module-card-body .btn {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+      border-radius: 50px;
+      padding: 10px 25px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(40, 167, 69, 0.2);
+    }
+
+    .module-card-body .btn:hover {
+      background-color: #218838;
+      /* Un poco más oscuro */
+      border-color: #1e7e34;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+    }
+
+    .module-card-body .btn:disabled {
+      background-color: #6c757d;
+      border-color: #6c757d;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    /* Sección de Reportes */
+    .reports-section {
+      background-color: var(--light-bg);
+    }
+
+    .report-card {
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .report-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .report-card h4 {
+      color: var(--primary-color);
+      margin-bottom: 25px;
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .report-card .form-label {
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 8px;
+    }
+
+    .report-card .form-control,
+    .report-card .form-select {
+      border-radius: 10px;
+      border: 1px solid #ced4da;
+      padding: 12px 18px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .report-card .form-control:focus,
+    .report-card .form-select:focus {
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    }
+
+    .report-card .btn-submit {
+      background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+    }
+
+    .report-card .btn-submit:hover {
+      background: linear-gradient(to right, var(--gradient-end), var(--gradient-start));
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(0, 123, 255, 0.4);
+    }
+
+    /* Sección de Contacto */
+    .contact-section {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      color: white;
+      font-size: 3rem;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    .contact-section p.lead {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto 50px auto;
+    }
+
+    .contact-info i {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+
+    .contact-info p {
+      font-size: 1.15rem;
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--dark-bg);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 40px 0;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .footer .social-icons a {
+      color: white;
+      font-size: 1.8rem;
+      margin: 0 12px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .footer .social-icons a:hover {
+      color: var(--secondary-color);
+      transform: translateY(-3px) scale(1.1);
+    }
+
+    /* Modal de Módulos */
+    .modal-content {
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-header {
+      border-bottom: none;
+      padding: 20px 25px;
+      background-color: var(--primary-color);
+      color: white;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    .modal-header .btn-close {
+      filter: invert(1);
+    }
+
+    .modal-title {
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+
+    .modal-body {
+      padding: 30px 25px;
+    }
+
+    .modal-body h4 {
+      color: var(--primary-color);
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .modal-body p strong {
+      color: var(--secondary-color);
+    }
+
+    .modal-footer {
+      border-top: none;
+      padding: 20px 25px;
+      background-color: var(--light-bg);
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    .modal-footer .btn {
+      border-radius: 50px;
+      padding: 8px 20px;
+    }
+
+    .embed-responsive {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .embed-responsive::before {
+      content: "";
+      display: block;
+      padding-top: 56.25%;
+      /* 16:9 aspect ratio */
+    }
+
+    .embed-responsive-item {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Animaciones */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .animate-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Aplicar animaciones específicas */
+    .animate-on-scroll[data-animation="slideInLeft"].is-visible {
+      animation: slideInLeft 1s ease-out forwards;
+    }
+
+    .animate-on-scroll[data-animation="slideInRight"].is-visible {
+      animation: slideInRight 1s ease-out forwards;
+    }
+
+    .animate-on-scroll[data-animation="zoomIn"].is-visible {
+      animation: zoomIn 1s ease-out forwards;
+    }
+
+    /* Media Queries para Responsividad */
+    @media (max-width: 991.98px) {
+      .hero-section h1 {
+        font-size: 3.5rem;
+      }
+
+      .hero-section p {
+        font-size: 1.2rem;
+      }
+
+      .section-heading {
+        font-size: 2.5rem;
+      }
+
+      .problem-card,
+      .solution-card,
+      .module-card,
+      .report-card {
+        padding: 30px;
+      }
+
+      .problem-card h3,
+      .solution-card h3 {
+        font-size: 1.8rem;
+      }
+
+      .module-card-body h4 {
+        font-size: 1.5rem;
+      }
+
+      .report-card h4 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .hero-section {
+        padding: 80px 0;
+      }
+
+      .hero-section h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero-section p {
+        font-size: 1rem;
+      }
+
+      .btn-primary-custom {
+        padding: 10px 25px;
+        font-size: 1rem;
+      }
+
+      .section-padding {
+        padding: 60px 0;
+      }
+
+      .section-heading {
+        font-size: 2rem;
+        margin-bottom: 30px;
+      }
+
+      .problem-card,
+      .solution-card,
+      .module-card,
+      .report-card {
+        padding: 25px;
+      }
+
+      .problem-card h3,
+      .solution-card h3 {
+        font-size: 1.6rem;
+      }
+
+      .module-card-body h4 {
+        font-size: 1.3rem;
+      }
+
+      .report-card h4 {
+        font-size: 1.6rem;
+      }
+
+      .contact-info i {
+        font-size: 2.5rem;
+      }
+
+      .contact-info p {
+        font-size: 1rem;
+      }
+
+      .footer {
+        padding: 30px 0;
+      }
+
+      .footer .social-icons a {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-traffic-light me-2"></i>EducaVial Quibdó
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#hero">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#problema-solucion">Problema y Solución</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#modulos">Módulos Educativos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reportes">Reportar Incidente</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login_2.html">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registro_2.html">Registrar</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="hero" class="hero-section">
+    <div class="container">
+      <h1 class="animate-on-scroll" data-animation="slideInUp">Educación Vial para un Quibdó Seguro</h1>
+      <p class="animate-on-scroll" data-animation="slideInUp" data-animation-delay="0.3s">Concientizamos y capacitamos a
+        ciudadanos para una movilidad responsable y un futuro sin accidentes.</p>
+      <a href="#modulos" class="btn btn-primary-custom animate-on-scroll" data-animation="zoomIn"
+        data-animation-delay="0.6s">Explora Nuestros Módulos</a>
+    </div>
+  </section>
+
+  <section id="problema-solucion" class="problem-solution-section section-padding text-center">
+    <div class="container">
+      <h2 class="section-heading mb-5 animate-on-scroll">Nuestra Misión: Un Tránsito Consciente</h2>
+      <div class="row">
+        <div class="col-md-6 animate-on-scroll" data-animation="slideInLeft">
+          <div class="problem-card">
+            <i class="icon fas fa-exclamation-triangle"></i>
+            <h3>El Problema en Quibdó</h3>
+            <p>El manejo inadecuado en las vías de tránsito en Quibdó es un problema evidente que afecta la movilidad y
+              la seguridad vial. La omisión de semáforos, la invasión de carriles y el estacionamiento ilegal generan
+              caos y aumentan el riesgo de accidentes.</p>
+            <p>La escasa cultura vial y la limitada infraestructura agravan la situación, poniendo en riesgo a
+              conductores y peatones.</p>
+          </div>
+        </div>
+        <div class="col-md-6 animate-on-scroll" data-animation="slideInRight">
+          <div class="solution-card">
+            <i class="icon fas fa-lightbulb"></i>
+            <h3>Nuestra Solución</h3>
+            <p>Proponemos programas de capacitación conjuntos con entidades municipales de tránsito para concientizar a
+              estudiantes de colegios y universidades.</p>
+            <p>Hemos desarrollado un sitio web como herramienta para fomentar la educación vial y la concienciación en
+              las instituciones educativas. Este recurso es vital para futuros conductores, peatones y ciclistas,
+              promoviendo un entorno vial más seguro y consciente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="modulos" class="modules-section section-padding">
+    <div class="container">
+      <h2 class="section-heading text-center mb-5 animate-on-scroll">Aprende con Nuestros Módulos Interactivos</h2>
+      <div class="row" id="modules-container">
+        <div class="col-lg-4 col-md-6 animate-on-scroll" data-animation="zoomIn">
+          <div class="module-card">
+            <img src="https://placehold.co/400x220/007bff/ffffff?text=Normas+de+Transito" alt="Normas de Tránsito">
+            <div class="module-card-body">
+              <h4>Normas Básicas de Tránsito</h4>
+              <p>Aprende las reglas fundamentales para circular de forma segura y legal.</p>
+              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#moduleModal" data-module-id="1"
+                data-module-title="Normas Básicas de Tránsito" data-module-type="video" data-module-difficulty="Básico"
+                data-module-description="Este módulo cubre las señales de tránsito, límites de velocidad y derechos de paso. Incluye videos explicativos y ejemplos prácticos."
+                data-module-video-url="https://www.youtube.com/watch?v=O_ZLL8AtIrY"> Ver Módulo
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 animate-on-scroll" data-animation="zoomIn" data-animation-delay="0.2s">
+          <div class="module-card">
+            <img src="https://placehold.co/400x220/28a745/ffffff?text=Conduccion+Defensiva" alt="Conducción Defensiva">
+            <div class="module-card-body">
+              <h4>Conducción Defensiva</h4>
+              <p>Técnicas para anticipar peligros y reaccionar correctamente en la vía.</p>
+              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#moduleModal" data-module-id="2"
+                data-module-title="Conducción Defensiva" data-module-type="quiz" data-module-difficulty="Intermedio"
+                data-module-description="Ponte a prueba con este quiz interactivo sobre situaciones de riesgo y cómo evitarlas. Evalúa tus conocimientos y mejora tus habilidades."
+                data-module-quiz-data='[{"question":"¿Qué es la distancia de seguimiento segura?","options":["La longitud de tu vehículo.","El tiempo que tardas en reaccionar.","La distancia que te permite detenerte de forma segura."],"answer":2}]'>
+                Ver Módulo
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 animate-on-scroll" data-animation="zoomIn" data-animation-delay="0.4s">
+          <div class="module-card">
+            <img src="https://placehold.co/400x220/ffc107/ffffff?text=Seguridad+Peatonal" alt="Seguridad Peatonal">
+            <div class="module-card-body">
+              <h4>Seguridad Peatonal y Ciclista</h4>
+              <p>Consejos esenciales para peatones y ciclistas en el entorno urbano.</p>
+              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#moduleModal" data-module-id="3"
+                data-module-title="Seguridad Peatonal y Ciclista" data-module-type="infografía"
+                data-module-difficulty="Básico"
+                data-module-description="Infografías interactivas con tips clave para transitar seguro como peatón o ciclista, respetando las normas y tu entorno."
+                data-module-image-url="https://placehold.co/600x400/ffc107/ffffff?text=Infografia+Seguridad+Vial"> Ver
+                Módulo
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 animate-on-scroll" data-animation="zoomIn" data-animation-delay="0.6s">
+          <div class="module-card">
+            <img src="https://placehold.co/400x220/6c757d/ffffff?text=Senalizacion+Vial" alt="Señalización Vial">
+            <div class="module-card-body">
+              <h4>Señalización Vial y Demarcación</h4>
+              <p>Identifica y comprende el significado de las señales de tránsito.</p>
+              <button class="btn btn-secondary" disabled>Próximamente</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reportes" class="reports-section section-padding">
+    <div class="container">
+      <h2 class="section-heading text-center mb-5 animate-on-scroll">Reporta un Incidente Vial</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 animate-on-scroll" data-animation="zoomIn">
+          <div class="report-card">
+            <h4>Ayúdanos a Mejorar la Seguridad Vial</h4>
+            <p class="mb-4 text-center">Tu reporte es crucial para identificar y abordar las problemáticas en las vías
+              de Quibdó. Describe el incidente, sube una foto y especifica la ubicación.</p>
+            <form id="reportForm">
+              <div class="mb-3">
+                <label for="tipoIncidente" class="form-label">Tipo de Incidente</label>
+                <select class="form-select" id="tipoIncidente" required>
+                  <option selected disabled value="">Selecciona...</option>
+                  <option value="Exceso de Velocidad">Exceso de Velocidad</option>
+                  <option value="Estacionamiento Ilegal">Estacionamiento Ilegal</option>
+                  <option value="Omisión de Semáforo">Omisión de Semáforo</option>
+                  <option value="Invasión de Carril">Invasión de Carril</option>
+                  <option value="Conducción Peligrosa">Conducción Peligrosa</option>
+                  <option value="Otros">Otros</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="ubicacionIncidente" class="form-label">Ubicación (ej: Calle 25 #3-10, Centro)</label>
+                <input type="text" class="form-control" id="ubicacionIncidente"
+                  placeholder="Ingresa la ubicación del incidente" required>
+              </div>
+              <div class="mb-3">
+                <label for="descripcionIncidente" class="form-label">Descripción Detallada</label>
+                <textarea class="form-control" id="descripcionIncidente" rows="4"
+                  placeholder="Describe brevemente lo ocurrido, fecha y hora si las conoces."></textarea>
+              </div>
+              <div class="mb-4">
+                <label for="fotoIncidente" class="form-label">Adjuntar Evidencia (Foto)</label>
+                <input class="form-control" type="file" id="fotoIncidente" accept="image/*">
+                <small class="form-text text-muted">Una imagen puede ayudar a validar tu reporte.</small>
+              </div>
+              <button type="submit" class="btn btn-primary-custom btn-submit w-100">Enviar Reporte</button>
+            </form>
+            <div id="reportMessage" class="mt-3 text-center" style="display: none;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact-section section-padding">
+    <div class="container animate-on-scroll">
+      <h2 class="mb-4">¿Tienes Preguntas? Contáctanos</h2>
+      <p class="lead">Estamos aquí para ayudarte a construir un Quibdó con mejores vías y mayor conciencia vial.</p>
+      <div class="row mt-5 contact-info">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <i class="fas fa-envelope"></i>
+          <p>info@educavialquibdo.com</p>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <i class="fas fa-phone-alt"></i>
+          <p>+57 323 765 0972</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Quibdó, Chocó, Colombia</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2025 EducaVial Quibdó. Todos los derechos reservados.</p>
+        </div>
+        <div class="col-md-6">
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="moduleModal" tabindex="-1" aria-labelledby="moduleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="moduleModalLabel">Detalles del Módulo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h4 id="modalModuleTitle"></h4>
+          <p><strong>Tipo de Contenido:</strong> <span id="modalContentType"></span></p>
+          <p><strong>Nivel de Dificultad:</strong> <span id="modalDifficulty"></span></p>
+          <p id="modalModuleDescription"></p>
+          <div id="moduleContentPlaceholder" class="mt-4">
+            <div class="embed-responsive embed-responsive-16by9 d-none" id="videoContent">
+              <iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
+              <p class="text-center mt-2 text-muted">Video de ejemplo de educación vial.</p>
+            </div>
+            <div id="quizContent" class="d-none">
+              <h5>Pregunta de Ejemplo:</h5>
+              <div id="quizQuestions"></div>
+              <button class="btn btn-primary mt-3" id="quizSubmitBtn">Responder</button>
+              <div id="quizResult" class="mt-2"></div>
+            </div>
+            <div id="infographicContent" class="text-center d-none">
+              <img src="" class="img-fluid rounded shadow-sm" alt="Infografía de Seguridad Vial">
+              <p class="text-center mt-2 text-muted">Infografía sobre tips de seguridad vial.</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Iniciar Módulo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Animaciones al hacer scroll
+      const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            // Si ya tiene una animación definida en CSS, no la sobrescribimos con style.animation
+            // La clase 'is-visible' activará las animaciones definidas en CSS
+            observer.unobserve(entry.target); // Detener la observación una vez que se ha animado
+          }
+        });
+      }, { threshold: 0.1 }); // Se activa cuando el 10% del elemento es visible
+
+      animateOnScrollElements.forEach(element => {
+        // Añadir un pequeño retardo basado en el atributo data-animation-delay
+        const delay = element.dataset.animationDelay;
+        if (delay) {
+          element.style.animationDelay = delay;
+        }
+        observer.observe(element);
+      });
+
+      // Lógica del Navbar al hacer scroll
+      const navbar = document.querySelector('.navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) { // Cambia a 'scrolled' después de 50px de scroll
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Lógica del Modal de Módulos
+      const moduleModal = document.getElementById('moduleModal');
+      moduleModal.addEventListener('show.bs.modal', event => {
+        const button = event.relatedTarget; // Botón que activó el modal
+
+        // Obtener datos de los atributos data-* del botón
+        const moduleId = button.getAttribute('data-module-id');
+        const moduleTitle = button.getAttribute('data-module-title');
+        const contentType = button.getAttribute('data-module-type');
+        const difficulty = button.getAttribute('data-module-difficulty');
+        const description = button.getAttribute('data-module-description');
+        const videoUrl = button.getAttribute('data-module-video-url');
+        const quizData = button.getAttribute('data-module-quiz-data');
+        const imageUrl = button.getAttribute('data-module-image-url');
+
+        // Actualizar el contenido del modal
+        document.getElementById('modalModuleTitle').textContent = moduleTitle;
+        document.getElementById('modalContentType').textContent = contentType.charAt(0).toUpperCase() + contentType.slice(1);
+        document.getElementById('modalDifficulty').textContent = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+        document.getElementById('modalModuleDescription').textContent = description;
+
+        // Ocultar todos los contenidos y mostrar solo el relevante
+        document.getElementById('videoContent').classList.add('d-none');
+        document.getElementById('quizContent').classList.add('d-none');
+        document.getElementById('infographicContent').classList.add('d-none');
+
+        if (contentType === 'video') {
+          const videoIframe = document.querySelector('#videoContent iframe');
+          videoIframe.src = videoUrl; // Establecer la URL del video
+          document.getElementById('videoContent').classList.remove('d-none');
+        } else if (contentType === 'quiz') {
+          const quizQuestionsDiv = document.getElementById('quizQuestions');
+          quizQuestionsDiv.innerHTML = ''; // Limpiar preguntas anteriores
+          const parsedQuizData = JSON.parse(quizData); // Parsear los datos del quiz
+
+          parsedQuizData.forEach((quizItem, index) => {
+            const questionHtml = `
+                            <div class="mb-3">
+                                <h5>${index + 1}. ${quizItem.question}</h5>
+                                ${quizItem.options.map((option, optIndex) => `
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="quizOption${index}" id="quizOption${index}-${optIndex}" value="${optIndex}">
+                                        <label class="form-check-label" for="quizOption${index}-${optIndex}">
+                                            ${option}
+                                        </label>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `;
+            quizQuestionsDiv.innerHTML += questionHtml;
+          });
+
+          document.getElementById('quizContent').classList.remove('d-none');
+          document.getElementById('quizResult').textContent = ''; // Limpiar resultado anterior
+
+          // Lógica para el botón de responder del quiz
+          const quizSubmitBtn = document.getElementById('quizSubmitBtn');
+          quizSubmitBtn.onclick = () => {
+            const selectedOption = document.querySelector(`input[name="quizOption0"]:checked`); // Asume un solo quiz por ahora
+            const resultDiv = document.getElementById('quizResult');
+            if (selectedOption) {
+              const userAnswer = parseInt(selectedOption.value);
+              if (userAnswer === parsedQuizData[0].answer) {
+                resultDiv.className = 'mt-2 alert alert-success';
+                resultDiv.textContent = '¡Correcto! Excelente respuesta.';
+              } else {
+                resultDiv.className = 'mt-2 alert alert-danger';
+                resultDiv.textContent = 'Incorrecto. Inténtalo de nuevo.';
+              }
+            } else {
+              resultDiv.className = 'mt-2 alert alert-warning';
+              resultDiv.textContent = 'Por favor, selecciona una opción.';
+            }
+          };
+
+        } else if (contentType === 'infografía') {
+          const infographicImg = document.querySelector('#infographicContent img');
+          infographicImg.src = imageUrl; // Establecer la URL de la infografía
+          document.getElementById('infographicContent').classList.remove('d-none');
+        }
+      });
+
+      // Limpiar el iframe del video cuando el modal se cierra para detener la reproducción
+      moduleModal.addEventListener('hide.bs.modal', event => {
+        const videoIframe = document.querySelector('#videoContent iframe');
+        videoIframe.src = ''; // Detener el video
+      });
+
+
+      // Scroll suave para los enlaces del navbar
+      document.querySelectorAll('a.nav-link[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            // Ajustar el scroll para que la barra de navegación no cubra la sección
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+              top: elementPosition - navbarHeight,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Manejo del formulario de reportes
+      const reportForm = document.getElementById('reportForm');
+      const reportMessage = document.getElementById('reportMessage');
+
+      reportForm.addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevenir el envío por defecto del formulario
+
+        const tipoIncidente = document.getElementById('tipoIncidente').value;
+        const ubicacionIncidente = document.getElementById('ubicacionIncidente').value;
+        const descripcionIncidente = document.getElementById('descripcionIncidente').value;
+        const fotoIncidente = document.getElementById('fotoIncidente').files[0]; // Archivo de la foto
+
+        // Aquí se simularía el envío de datos a una base de datos o API
+        // En un entorno real, se usaría fetch() o XMLHttpRequest para enviar estos datos al backend
+        console.log('Reporte Enviado:', {
+          tipoIncidente,
+          ubicacionIncidente,
+          descripcionIncidente,
+          fotoIncidente: fotoIncidente ? fotoIncidente.name : 'No adjunta'
+        });
+
+        // Mostrar mensaje de éxito
+        reportMessage.style.display = 'block';
+        reportMessage.className = 'mt-3 alert alert-success';
+        reportMessage.textContent = '¡Gracias! Tu reporte ha sido enviado con éxito y nos ayudará a mejorar la seguridad vial.';
+
+        // Resetear el formulario después de un breve retraso
+        setTimeout(() => {
+          reportForm.reset();
+          reportMessage.style.display = 'none';
+        }, 3000); // Ocultar mensaje después de 3 segundos
+      });
+    });
+  </script>
+</body>
+
+</html>

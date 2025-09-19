@@ -1,0 +1,46 @@
+/*!
+ * Start Bootstrap - SB Admin 2 v4.1.3 (https://startbootstrap.com/theme/sb-admin-2)
+ * Copyright 2013-2021 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin-2/blob/master/LICENSE)
+ *//*!
+ * Bootstrap v4.6.0 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)*/
+
+ .header-logo .logo-circle {
+      width: 40px;
+      height: 40px;
+      background-color: transparent;
+      /* O el color que desees para el fondo del círculo */
+      background-image: url('assets/img/Logo_2.png');
+      /* Ruta a tu nuevo logo */
+      background-size: contain;
+      /* Ajusta la imagen para que quepa dentro del círculo */
+      background-repeat: no-repeat;
+      /* Evita que la imagen se repita */
+      background-position: center;
+      /* Centra la imagen dentro del círculo */
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+      /* Puedes eliminar las propiedades 'color', 'font-weight', 'font-size' si el logo es una imagen */
+    }
+
+    .header-logo .logo-circle {
+      /* Elimina o comenta todos los estilos de .logo-circle ya que ya no existe */
+      display: none;
+      /* Para asegurarte de que no haya efectos residuales si no lo borraste del HTML */
+    }
+
+    .header-logo-img {
+      height: 40px;
+      /* Ajusta la altura de tu logo */
+      width: auto;
+      /* Mantiene la proporción */
+      margin-right: 10px;
+      /* Espacio entre el logo y el texto */
+    }
+ 
